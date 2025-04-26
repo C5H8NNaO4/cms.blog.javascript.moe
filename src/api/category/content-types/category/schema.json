@@ -19,7 +19,6 @@
       "type": "uid",
       "targetField": "name"
     },
-    // CORRECTED: Relation moved inside "attributes"
     "blog_posts": {
       "type": "relation",
       "relation": "oneToMany",
