@@ -1,24 +1,30 @@
 {
-    "kind": "collectionType",
-    "collectionName": "categories",
-    "info": {
-      "singularName": "category",
-      "pluralName": "categories",
-      "displayName": "Category"
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Category"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
     },
-    "options": {
-      "draftAndPublish": false
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     },
-    "attributes": {
-      "name": {
-        "type": "string",
-        "required": true,
-        "unique": true
-      },
-      "slug": {
-        "type": "uid",
-        "targetField": "name"
-      }
+    // CORRECTED: Relation moved inside "attributes"
+    "blog_posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-post.blog-post",
+      "mappedBy": "category"
     }
   }
-  
+}
