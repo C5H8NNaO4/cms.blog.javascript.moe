@@ -36,7 +36,7 @@
         "type": "relation",
         "relation": "manyToOne",
         "target": "api::category.category",
-        "inversedBy": "blog_posts"
+        "inversedBy": "blog-posts"
       },
       "publishedAt": {
         "type": "datetime"
