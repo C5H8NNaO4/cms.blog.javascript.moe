@@ -1,6 +1,7 @@
 {
   "kind": "collectionType",
   "collectionName": "blog_posts",
+  "pluginOptions": { "i18n": { "localized": true } },
   "info": {
     "singularName": "blog-post",
     "pluralName": "blog-posts",
@@ -24,7 +25,7 @@
     },
     "excerpt": {
       "type": "string",
-      "maxLength": 160
+      "maxLength": 320
     },
     "coverImage": {
       "type": "media",
