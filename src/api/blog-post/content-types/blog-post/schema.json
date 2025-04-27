@@ -21,11 +21,13 @@
     },
     "content": {
       "type": "richtext",
-      "required": true
+      "required": true,
+      "localized": true
     },
     "excerpt": {
       "type": "string",
-      "maxLength": 320
+      "maxLength": 320,
+      "localized": true
     },
     "coverImage": {
       "type": "media",
@@ -43,10 +45,12 @@
       "type": "datetime"
     },
     "metaTitle": {
-      "type": "string"
+      "type": "string",
+      "localized": true
     },
     "metaDescription": {
-      "type": "text"
+      "type": "text",
+      "localized": true
     }
   }
 }
