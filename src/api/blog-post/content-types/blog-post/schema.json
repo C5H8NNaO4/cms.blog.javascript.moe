@@ -13,7 +13,8 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "slug": {
       "type": "uid",
@@ -22,12 +23,12 @@
     "content": {
       "type": "richtext",
       "required": true,
-      "localized": true
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "excerpt": {
       "type": "string",
       "maxLength": 320,
-      "localized": true
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "coverImage": {
       "type": "media",
@@ -46,11 +47,11 @@
     },
     "metaTitle": {
       "type": "string",
-      "localized": true
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "metaDescription": {
       "type": "text",
-      "localized": true
+      "pluginOptions": { "i18n": { "localized": true } }
     }
   }
 }
