@@ -27,7 +27,7 @@
     },
     "excerpt": {
       "type": "string",
-      "maxLength": 320,
+      "maxLength": 700,
       "pluginOptions": { "i18n": { "localized": true } }
     },
     "coverImage": {
