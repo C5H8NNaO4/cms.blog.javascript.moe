@@ -26,8 +26,8 @@
       "pluginOptions": { "i18n": { "localized": true } }
     },
     "excerpt": {
-      "type": "string",
-      "maxLength": 700,
+      "type": "richtext",
+      "required": true,
       "pluginOptions": { "i18n": { "localized": true } }
     },
     "coverImage": {
