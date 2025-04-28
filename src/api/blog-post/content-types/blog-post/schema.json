@@ -52,6 +52,12 @@
     "metaDescription": {
       "type": "text",
       "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "labels": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::label.label",
+      "inversedBy": "blog_posts"
     }
   }
 }
