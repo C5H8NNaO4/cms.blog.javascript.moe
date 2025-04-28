@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "labels",
+  "collectionName": "tags",
   "pluginOptions": { "i18n": { "localized": true } },
   "info": {
-    "singularName": "label",
-    "pluralName": "labels",
+    "singularName": "tag",
+    "pluralName": "tags",
     "displayName": "Label"
   },
   "options": {
@@ -29,7 +29,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::blog-post.blog-post",
-      "mappedBy": "labels"
+      "mappedBy": "tags"
     }
   }
 }

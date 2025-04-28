@@ -53,10 +53,10 @@
       "type": "text",
       "pluginOptions": { "i18n": { "localized": true } }
     },
-    "labels": {
+    "tags": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::label.label",
+      "target": "api::tag.tag",
       "inversedBy": "blog_posts"
     }
   }
