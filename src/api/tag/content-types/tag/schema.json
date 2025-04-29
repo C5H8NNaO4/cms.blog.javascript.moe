@@ -29,7 +29,8 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::blog-post.blog-post",
-      "mappedBy": "tags"
+      "mappedBy": "tags",
+      "pluginOptions": { "i18n": { "localized": false } }
     }
   }
 }

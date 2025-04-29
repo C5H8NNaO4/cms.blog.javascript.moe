@@ -1,7 +1,0 @@
-{
-  "method": "GET",
-  "path": "/blog-post",
-  "config": {
-    "policies": []
-  }
-}
