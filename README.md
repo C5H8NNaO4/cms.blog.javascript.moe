@@ -1,3 +1,26 @@
+# Strapi Localized Blog Boilerplate
+
+A base Strapi boilerplate for building a localized blog. This setup provides a solid foundation for creating content-rich blogs with localization support, categories, tags, content management, and media handling. Ideal for projects that require multiple languages, easy content categorization, and customizable media like cover images.
+
+## Features:
+
+- **Localized Content**: Supports multiple languages for a truly global reach.
+- **Categories & Tags**: Organize your content with categories and tags for better navigation and SEO.
+- **Content & Excerpt**: Create and manage blog posts with full content and excerpts for preview purposes.
+- **Cover Image**: Attach a cover image to each blog post to enhance the visual appeal of your content.
+  
+## Getting Started
+
+1. Clone this repository
+2. Install Strapi using the command `npm install` or `yarn install`
+3. Set up your database configuration (SQLite, MongoDB, PostgreSQL, etc.)
+4. Start Strapi using `npm run develop` or `yarn develop`
+5. Access the admin panel at `http://localhost:1337/admin` to create and manage content
+
+## Customization
+
+This boilerplate is fully customizable, allowing you to easily adjust the content structure, add new fields, or modify localization settings according to your project needs.
+
 # 🚀 Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
