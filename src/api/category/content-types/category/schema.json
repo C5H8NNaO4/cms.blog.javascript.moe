@@ -1,6 +1,7 @@
 {
   "kind": "collectionType",
   "collectionName": "categories",
+  "pluginOptions": { "i18n": { "localized": true } },
   "info": {
     "singularName": "category",
     "pluralName": "categories",
@@ -13,6 +14,7 @@
     "name": {
       "type": "string",
       "required": true,
+      "pluginOptions": { "i18n": { "localized": true } },
       "unique": true
     },
     "slug": {
@@ -23,7 +25,8 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::blog-post.blog-post",
-      "mappedBy": "category"
+      "mappedBy": "category",
+      "pluginOptions": { "i18n": { "localized": false } }
     }
   }
 }
