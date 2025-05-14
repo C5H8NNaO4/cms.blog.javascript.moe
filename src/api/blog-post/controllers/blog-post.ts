@@ -11,6 +11,9 @@ export default factories.createCoreController(
         id
       );
 
+      if (!entity) {
+        return ctx.notFound("Invalid id");
+      }
       // If views is null, set it to 0 before incrementing
       const currentViews = entity?.views ?? 0;
 
