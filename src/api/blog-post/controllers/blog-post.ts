@@ -4,11 +4,15 @@ export default factories.createCoreController(
   "api::blog-post.blog-post",
   ({ strapi }: any) => ({
     async incrementViews(ctx) {
-      const { id } = ctx.params;
+      const { id: documentId } = ctx.params;
       // Fetch the current entity to check if views is null
-      const entity = await strapi.entityService.findOne(
+      const [entity] = await strapi.entityService.findMany(
         "api::blog-post.blog-post",
-        id
+        {
+          filters: {
+            documentId: documentId,
+          },
+        }
       );
 
       if (!entity) {
@@ -18,7 +22,7 @@ export default factories.createCoreController(
       const currentViews = entity?.views ?? 0;
 
       // Increment the views safely
-      await strapi.entityService.update("api::blog-post.blog-post", id, {
+      await strapi.entityService.update("api::blog-post.blog-post", entity.id, {
         data: { views: currentViews + 1 },
       });
 
