@@ -59,7 +59,10 @@
       "target": "api::tag.tag",
       "inversedBy": "blog_posts",
       "pluginOptions": { "i18n": { "localized": false } }
-
+    },
+    "views": {
+      "type": "integer",
+      "default": 0
     }
   }
 }

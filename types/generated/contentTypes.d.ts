@@ -439,6 +439,7 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    views: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
   };
 }
 
