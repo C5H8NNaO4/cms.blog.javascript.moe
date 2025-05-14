@@ -27,5 +27,12 @@ export default factories.createCoreController(
       // Return the post (optionally, you can re-fetch to get the updated views)
       return this.transformResponse(entity);
     },
+    async incrementViews(ctx) {
+      const { id } = ctx.params;
+      await strapi.entityService.update("api::blog-post.blog-post", id, {
+        data: { views: { $increment: 1 } },
+      });
+      return { success: true };
+    },
   })
 );
