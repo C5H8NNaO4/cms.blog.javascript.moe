@@ -5,28 +5,55 @@ export default factories.createCoreController(
   ({ strapi }: any) => ({
     async incrementViews(ctx) {
       const { id: documentId } = ctx.params;
-      // Fetch the current entity to check if views is null
+      const { locale } = ctx.query;
+
+      // Fetch the entity by documentId and locale
       const [entity] = await strapi.entityService.findMany(
         "api::blog-post.blog-post",
         {
           filters: {
             documentId: documentId,
           },
+          locale, // <- this ensures the correct localized version is fetched
         }
       );
 
       if (!entity) {
-        return ctx.notFound("Invalid id");
+        return ctx.notFound("Invalid id or missing locale-specific entry");
       }
-      // If views is null, set it to 0 before incrementing
-      const currentViews = entity?.views ?? 0;
 
-      // Increment the views safely
+      const currentViews = entity.views ?? 0;
+
+      // Increment using the internal numeric id
       await strapi.entityService.update("api::blog-post.blog-post", entity.id, {
         data: { views: currentViews + 1 },
       });
 
       return { success: true, views: currentViews + 1 };
+    },
+
+    async views(ctx) {
+      const { id: documentId } = ctx.params;
+      const { locale } = ctx.query;
+
+      // Fetch the entity by documentId and locale
+      const [entity] = await strapi.entityService.findMany(
+        "api::blog-post.blog-post",
+        {
+          filters: {
+            documentId: documentId,
+          },
+          locale, // <- this ensures the correct localized version is fetched
+        }
+      );
+
+      if (!entity) {
+        return ctx.notFound("Invalid id or missing locale-specific entry");
+      }
+
+      const currentViews = entity.views ?? 0;
+
+      return { views: currentViews + 1 };
     },
   })
 );

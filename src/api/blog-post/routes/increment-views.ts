@@ -8,5 +8,13 @@ export default {
         auth: false, // Make public if needed
       },
     },
+    {
+      method: "GET",
+      path: "/blog-posts/:id/views",
+      handler: "blog-post.views",
+      config: {
+        auth: false,
+      },
+    }
   ],
 };
