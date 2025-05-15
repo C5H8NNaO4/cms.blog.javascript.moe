@@ -63,8 +63,8 @@
     "views": {
       "type": "integer",
       "default": 0,
-      "pluginOptions": { "i18n": { "localized": true } }
-
+      "pluginOptions": { "i18n": { "localized": true } },
+      "localized": true
     }
   }
 }
