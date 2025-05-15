@@ -1,4 +1,5 @@
 import { factories } from "@strapi/strapi";
+import { isBot } from "../../../lib/util";
 
 export default factories.createCoreController(
   "api::blog-post.blog-post",
@@ -7,6 +8,12 @@ export default factories.createCoreController(
       const { id: documentId } = ctx.params;
       const { locale } = ctx.query;
 
+      // Bot filtering
+      const userAgent = ctx.request.header["user-agent"];
+      if (isBot(userAgent)) {
+        return ctx.badRequest("Bots are not allowed to increment views");
+      }
+
       // Fetch the entity by documentId and locale
       const [entity] = await strapi.entityService.findMany(
         "api::blog-post.blog-post",
@@ -14,7 +21,7 @@ export default factories.createCoreController(
           filters: {
             documentId: documentId,
           },
-          locale, // <- this ensures the correct localized version is fetched
+          locale,
         }
       );
 
@@ -55,7 +62,7 @@ export default factories.createCoreController(
 
       // Set Cache-Control header
       ctx.set("Cache-Control", "public, max-age=300");
-      
+
       return { views: currentViews + 1 };
     },
   })
