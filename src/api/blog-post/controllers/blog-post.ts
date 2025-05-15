@@ -53,6 +53,9 @@ export default factories.createCoreController(
 
       const currentViews = entity.views ?? 0;
 
+      // Set Cache-Control header
+      ctx.set("Cache-Control", "public, max-age=300");
+      
       return { views: currentViews + 1 };
     },
   })
