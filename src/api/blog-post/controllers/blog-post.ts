@@ -14,16 +14,20 @@ export default factories.createCoreController(
         return ctx.badRequest("Bots are not allowed to increment views");
       }
 
-      // Fetch the entity by documentId and locale
-      const [entity] = await strapi.entityService.findMany(
+      // First find the default locale (e.g., "en") entry by documentId
+      const [defaultEntity] = await strapi.entityService.findMany(
         "api::blog-post.blog-post",
         {
-          filters: {
-            documentId: documentId,
-          },
-          locale,
+          filters: { documentId },
+          populate: ["localizations"],
         }
       );
+
+      // Now find the correct localized version
+      const entity =
+        locale === defaultEntity.locale
+          ? defaultEntity
+          : defaultEntity.localizations.find((l) => l.locale === locale);
 
       if (!entity) {
         return ctx.notFound("Invalid id or missing locale-specific entry");
