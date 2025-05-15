@@ -27,6 +27,12 @@
       "target": "api::blog-post.blog-post",
       "mappedBy": "category",
       "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
     }
   }
 }
