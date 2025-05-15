@@ -31,9 +31,9 @@ export default factories.createCoreController(
 
       const currentViews = entity.views ?? 0;
 
-      // Increment using the internal numeric id
       await strapi.entityService.update("api::blog-post.blog-post", entity.id, {
         data: { views: currentViews + 1 },
+        params: { locale },
       });
 
       return { success: true, views: currentViews + 1 };
