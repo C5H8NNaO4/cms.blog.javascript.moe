@@ -14,30 +14,28 @@ export default factories.createCoreController(
         return ctx.badRequest("Bots are not allowed to increment views");
       }
 
-      // Find the default locale entity and its localizations
-      const [defaultEntity] = await strapi.entityService.findMany(
+      // Fetch the entity by documentId and locale
+      const [entity] = await strapi.entityService.findMany(
         "api::blog-post.blog-post",
         {
-          filters: { documentId },
-          locale
-        }
-      );
-
-      if (!defaultEntity) {
-        return ctx.notFound("Invalid id or missing default locale entry");
-      }
-
-      const currentViews = defaultEntity.views ?? 0;
-
-      // Update the localized entity's views
-      await strapi.entityService.update(
-        "api::blog-post.blog-post",
-        defaultEntity.id,
-        {
-          data: { views: currentViews + 1 },
+          filters: {
+            documentId: documentId,
+          },
           locale,
         }
       );
+
+      if (!entity) {
+        return ctx.notFound("Invalid id or missing locale-specific entry");
+      }
+
+      const currentViews = entity.views ?? 0;
+
+      // Increment using the internal numeric id
+      await strapi.entityService.update("api::blog-post.blog-post", entity.id, {
+        data: { views: currentViews + 1 },
+        locale,
+      });
 
       return { success: true, views: currentViews + 1 };
     },
@@ -46,40 +44,27 @@ export default factories.createCoreController(
       const { id: documentId } = ctx.params;
       const { locale } = ctx.query;
 
-      // Find the default locale entity and its localizations
-      const [defaultEntity] = await strapi.entityService.findMany(
+      // Fetch the entity by documentId and locale
+      const [entity] = await strapi.entityService.findMany(
         "api::blog-post.blog-post",
         {
-          filters: { documentId },
-          populate: ["localizations", "id"],
+          filters: {
+            documentId: documentId,
+          },
+          locale, // <- this ensures the correct localized version is fetched
         }
       );
 
-      if (!defaultEntity) {
-        return ctx.notFound("Invalid id or missing default locale entry");
+      if (!entity) {
+        return ctx.notFound("Invalid id or missing locale-specific entry");
       }
 
-      // Determine the localized entity ID
-      const entity = defaultEntity.localizations.find(
-        (l) => l.locale === locale
-      );
-
-      if (!entity.id) {
-        return ctx.notFound("Missing localized entry for this locale");
-      }
-
-      // Fetch the full localized entity
-      const localizedEntity = await strapi.entityService.findOne(
-        "api::blog-post.blog-post",
-        entity.id
-      );
-
-      const currentViews = localizedEntity.views ?? 0;
+      const currentViews = entity.views ?? 0;
 
       // Set Cache-Control header
       ctx.set("Cache-Control", "public, max-age=300");
 
-      return { views: currentViews };
+      return { views: currentViews + 1 };
     },
   })
 );
