@@ -64,7 +64,7 @@ export default factories.createCoreController(
       // Set Cache-Control header
       ctx.set("Cache-Control", "public, max-age=300");
 
-      return { views: currentViews + 1 };
+      return { views: currentViews  };
     },
   })
 );
