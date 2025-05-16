@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "blog_configs",
+  "pluginOptions": { "i18n": { "localized": true } },
+  "info": {
+    "singularName": "blog-config",
+    "pluralName": "blog-configs",
+    "displayName": "Blog Config",
+    "description": "Global blog settings and toggles"
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"],
+      "pluginOptions": { "i18n": { "localized": false } }
+    }
+  }
+}
