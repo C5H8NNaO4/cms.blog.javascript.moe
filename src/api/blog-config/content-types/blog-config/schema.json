@@ -18,7 +18,7 @@
     "imageUrl": {
       "type": "string",
       "required": true,
-      "pluginOptions": { "i18n": { "localized": true } },
+      "pluginOptions": { "i18n": { "localized": false } },
       "description": "The url to the public folder of your server. e.g. https://javascript.moe/"
     },
     "author": {
@@ -27,7 +27,7 @@
     },
     "role": {
       "type": "string",
-      "pluginOptions": { "i18n": { "localized": true } }
+      "pluginOptions": { "i18n": { "localized": false } }
     },
     "location": {
       "type": "string",
@@ -41,6 +41,7 @@
     "metaTitle": {
       "type": "string",
       "pluginOptions": { "i18n": { "localized": true } },
+      "default": "Blog | $author | $role | $location",
       "description": "The title that appears in search engines, social networks and structured data."
     },
     "description": {
