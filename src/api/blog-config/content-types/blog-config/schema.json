@@ -9,9 +9,27 @@
     "description": "Global blog settings and toggles"
   },
   "attributes": {
-    "title": {
+    "author": {
       "type": "string",
       "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "role": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "location": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": false } }
+    },
+    "title": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } },
+      "description": "The title that appears in the top of the blog. You can use the placeholders $author, $role, $location."
+    },
+    "metaTitle": {
+      "type": "string",
+      "pluginOptions": { "i18n": { "localized": true } },
+      "description": "The title that appears in search engines, social networks and structured data."
     },
     "description": {
       "type": "text",
