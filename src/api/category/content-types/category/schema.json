@@ -33,6 +33,9 @@
       "multiple": false,
       "required": true,
       "allowedTypes": ["images"]
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
