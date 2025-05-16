@@ -9,6 +9,18 @@
     "description": "Global blog settings and toggles"
   },
   "attributes": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } },
+      "description": "The url of your blog. e.g. https://javascript.moe/blog"
+    },
+    "imageUrl": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } },
+      "description": "The url to the public folder of your server. e.g. https://javascript.moe/"
+    },
     "author": {
       "type": "string",
       "pluginOptions": { "i18n": { "localized": true } }
