@@ -52,7 +52,7 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"],
+      "allowedTypes": ["images", "videos"],
       "pluginOptions": { "i18n": { "localized": false } }
     }
   }
