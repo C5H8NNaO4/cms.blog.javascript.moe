@@ -73,6 +73,12 @@
       "default": 0,
       "pluginOptions": { "i18n": { "localized": true } },
       "localized": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0,
+      "pluginOptions": { "i18n": { "localized": true } },
+      "localized": true
     }
   }
 }
