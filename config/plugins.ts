@@ -19,8 +19,11 @@ export default ({ env }) => ({
     config: {
       provider: "local",
       providerOptions: {
-        sizeLimit: 1000000, // optional: limit in bytes
+        sizeLimit: 100000000, // optional: limit in bytes
       },
     },
+  },
+  "import-export-entries": {
+    enabled: false,
   },
 });
